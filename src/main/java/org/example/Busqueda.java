@@ -26,4 +26,18 @@ public class Busqueda {
                     arr[j + 1] = temp;
                 }
     }
+
+    public void sort2(int[] arr) {
+        if (inicio < fin) {
+            // Encontrar el punto medio
+            int medio = inicio + (fin - inicio) / 2;
+
+            // Ordenar la primera y segunda mitad
+            mergeSort(arr, inicio, medio);
+            mergeSort(arr, medio + 1, fin);
+
+            // Fusionar las mitades ordenadas
+            merge(arr, inicio, medio, fin);
+        }
+    }
 }
