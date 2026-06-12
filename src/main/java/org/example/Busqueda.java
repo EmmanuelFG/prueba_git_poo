@@ -28,16 +28,17 @@ public class Busqueda {
     }
 
     public void sort2(int[] arr) {
-        if (inicio < fin) {
-            // Encontrar el punto medio
-            int medio = inicio + (fin - inicio) / 2;
+        for (int i = 1; i < arr.length; i++) {
+            int clave = arr[i];
+            int j = i - 1;
 
-            // Ordenar la primera y segunda mitad
-            mergeSort(arr, inicio, medio);
-            mergeSort(arr, medio + 1, fin);
-
-            // Fusionar las mitades ordenadas
-            merge(arr, inicio, medio, fin);
+            // Mueve los elementos de arr[0..i-1] que son mayores que la clave
+            // a una posición adelante de su posición actual
+            while (j >= 0 && arr[j] > clave) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = clave;
         }
     }
 }
