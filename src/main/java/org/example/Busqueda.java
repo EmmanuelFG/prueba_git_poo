@@ -26,4 +26,19 @@ public class Busqueda {
                     arr[j + 1] = temp;
                 }
     }
+
+    public void sort2(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int clave = arr[i];
+            int j = i - 1;
+
+            // Mueve los elementos de arr[0..i-1] que son mayores que la clave
+            // a una posición adelante de su posición actual
+            while (j >= 0 && arr[j] > clave) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = clave;
+        }
+    }
 }
